@@ -13,5 +13,9 @@
 
     <h1>1st commit</h1>
 
+    <?php 
+    echo ("php test");
+    ?>
+
   </body>
 </html>

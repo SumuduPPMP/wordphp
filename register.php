@@ -13,16 +13,21 @@
         if(!$result){ 
             die('Query failed'. mysqli_error($connection));
         }else{
-            echo $username ;
+            //echo $username ;
+            $getallquery = "SELECT * FROM users ";
+            $returnResult = mysqli_query($connection, $getallquery);
+            if(!$result){ 
+                die('Query failed'. mysqli_error($connection));
+            }             
         }
       }
       
- //create an array
-        // $usersarray = array();
-        // while($row =mysqli_fetch_assoc($result)){
-        //      $usersarray[] = $row;
-        // }
- 
-        // echo json_encode($mysqli_fetch_assoc($usersarray));
-        //$data =mysqli_fetch_assoc($result);
     ?>
+
+<?php while($data = $returnResult->fetch_assoc()):?>
+    <tr>
+        <td><?php echo $data['id']; ?></td>
+        <td><?php echo $data['username']; ?></td>
+        <td><?php echo $data['password']; ?></td>
+    </tr>
+<?php endwhile; ?>

@@ -151,8 +151,9 @@
            url: 'register.php',
            data:{"name":u_name,"password":u_password},
            success: function (data) {
-           // $('#user_data').append(data);
-           console.log(data);
+              $("#name").val("");
+              $("#password").val("");
+              $('#user_data').html(data);
             }
            
           });
